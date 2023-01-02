@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="382.0" spacing="30.0" stylesheets="@css/css.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.chalodss.spaceinvaders.classes.playController">
+    <children>
+        <HBox alignment="CENTER" prefHeight="169.0" prefWidth="323.0" style="-fx-background-color: #F15C5C;">
+            <children>
+                <Label text="✘" textFill="WHITE">
+                    <font>
+                        <Font size="63.0" />
+                    </font>
+                </Label>
+              <!--  <Text fx:id="score" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="00000">
+                </Text>-->
+            </children>
+        </HBox>
+        <Label text="GAME OVER !">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label prefHeight="47.0" text="Your actions have violated the terms of the game and"/>
+        <Label prefHeight="47.0" text="  have resulted in your disqualification. Better luck next time! " />
+        <Separator prefWidth="200.0" />
+        <JFXButton cache="true" onAction="#RestartGame" prefHeight="39.0" prefWidth="161.0" ripplerFill="#f5f2f2" style="-fx-background-color: #F15C5C;" styleClass="btn"  text="Restart Game" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </JFXButton>
+      <JFXButton cache="true" onAction="#closeGame" prefHeight="39.0" prefWidth="161.0" ripplerFill="#f5f2f2" style="-fx-background-color: #F15C5C;" styleClass="btn"  text="Exit Game" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+    </children>
+    <padding>
+        <Insets bottom="20.0" />
+    </padding>
+</VBox>
