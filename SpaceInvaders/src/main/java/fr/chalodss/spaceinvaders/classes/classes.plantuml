@@ -1,0 +1,222 @@
+@startuml
+
+title __CLASSES's Class Diagram__\n
+
+  namespace  {
+    namespace r.chalodss.spaceinvaders {
+      namespace classes {
+        class fr.chalodss.spaceinvaders.classes.AlertController {
+            {static} + invalidDialog : JFXDialog
+            {static} + validDialog : JFXDialog
+            - invalidPane : VBox
+            - root : StackPane
+            - validPane : VBox
+            + initialize()
+            {static} + validDialog()
+            - onClose()
+            - onInvalid()
+            - onValid()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace r.chalodss.spaceinvaders {
+      namespace classes {
+        class fr.chalodss.spaceinvaders.classes.Collisions {
+            {static} + endTimee : long
+            {static} + stage : Stage
+            {static} ~ game : Game
+            {static} ~ mycol : Collisions
+            {static} ~ root : Parent
+            {static} ~ scene : Scene
+            {static} - textField : TextField
+            + gotoplay()
+            {static} ~ collide()
+            {static} ~ collide()
+            {static} ~ collisionBeamEnnemiesBeamsPlayer()
+            {static} ~ collisionBeamEnnemiesPlayer()
+            {static} ~ collisionBeamPlayerEnnemies()
+            - Collisions()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace r.chalodss.spaceinvaders {
+      namespace classes {
+        class fr.chalodss.spaceinvaders.classes.Controller {
+            {static} + Height : Integer
+            {static} + Width : Integer
+            {static} + invWidth : Integer
+            {static} + startTime : long
+            ~ end : BooleanProperty
+            ~ i : int
+            {static} ~ loop : AnimationTimer
+            - board : Pane
+            - score : Text
+            + Controller()
+            + getPlayer()
+            - init()
+            - reset()
+            - start()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace r.chalodss.spaceinvaders {
+      namespace classes {
+        enum EState {
+          ALIVE
+          DEAD
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace r.chalodss.spaceinvaders {
+      namespace classes {
+        class fr.chalodss.spaceinvaders.classes.Entity {
+            + Entity()
+            ~ isDead()
+            ~ moveX()
+            ~ moveY()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace r.chalodss.spaceinvaders {
+      namespace classes {
+        class fr.chalodss.spaceinvaders.classes.Game {
+            ~ beams : List<Entity>
+            ~ beams1 : List<Entity>
+            ~ deltaX : double
+            ~ direction : int
+            ~ end : BooleanProperty
+            ~ invaders : List<Entity>
+            ~ rand : Random
+            ~ score : IntegerProperty
+            + Game()
+            + GetListOfImage()
+            + MoveThemUporDown()
+            ~ handlePlayer()
+            ~ invadersMove()
+            ~ invadersShoot()
+            ~ invadersShoot1()
+            ~ updateBeams()
+            ~ updateCollisions()
+            ~ updateInvaders()
+            ~ updateSpeedInvaders()
+            - updateBeamPlayer()
+            - updateBeamPlayer2()
+            - updateBeamsEnnemies()
+            - updateBeamsEnnemies1()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace r.chalodss.spaceinvaders {
+      namespace classes {
+        class fr.chalodss.spaceinvaders.classes.Init {
+            {static} + initInvaders()
+            - Init()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace r.chalodss.spaceinvaders {
+      namespace classes {
+        class fr.chalodss.spaceinvaders.classes.Player {
+            ~ canShoot : boolean
+            ~ canShoot2 : boolean
+            ~ moveleft : KeyCode
+            ~ moveright : KeyCode
+            ~ onKeyPressed : EventHandler<KeyEvent>
+            ~ onKeyReleased : EventHandler<KeyEvent>
+            ~ shoot : KeyCode
+            ~ velX : int
+            + Player()
+            ~ move()
+            ~ onKeyReleased1()
+            ~ shoot()
+            ~ shoot1()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace r.chalodss.spaceinvaders {
+      namespace classes {
+        class fr.chalodss.spaceinvaders.classes.Renderer {
+            + Renderer()
+            ~ render()
+            - addBeams()
+            - addBeams1()
+            - removeEntities()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace r.chalodss.spaceinvaders {
+      namespace classes {
+        class fr.chalodss.spaceinvaders.classes.playController {
+            + sceneWidth : double
+            - root : Parent
+            {static} - scene : Scene
+            {static} - stage : Stage
+            + RestartGame()
+            + gotoplay()
+            + playController()
+            - closeGame()
+        }
+      }
+    }
+  }
+  
+
+  fr.chalodss.spaceinvaders.classes.AlertController .up.|> javafx.fxml.Initializable
+  fr.chalodss.spaceinvaders.classes.Collisions o-- fr.chalodss.spaceinvaders.classes.Entity : explo
+  fr.chalodss.spaceinvaders.classes.Controller o-- fr.chalodss.spaceinvaders.classes.Game : game
+  fr.chalodss.spaceinvaders.classes.Controller o-- fr.chalodss.spaceinvaders.classes.Player : player
+  fr.chalodss.spaceinvaders.classes.Controller o-- fr.chalodss.spaceinvaders.classes.Player : player2
+  fr.chalodss.spaceinvaders.classes.Controller o-- fr.chalodss.spaceinvaders.classes.Renderer : renderer
+  fr.chalodss.spaceinvaders.classes.Entity -up-|> javafx.scene.image.ImageView
+  fr.chalodss.spaceinvaders.classes.Entity o-- fr.chalodss.spaceinvaders.classes.EState : state
+  fr.chalodss.spaceinvaders.classes.Game o-- fr.chalodss.spaceinvaders.classes.Player : player
+  fr.chalodss.spaceinvaders.classes.Game o-- fr.chalodss.spaceinvaders.classes.Player : player2
+  fr.chalodss.spaceinvaders.classes.Player -up-|> javafx.scene.image.ImageView
+  fr.chalodss.spaceinvaders.classes.Player o-- fr.chalodss.spaceinvaders.classes.Entity : beam
+  fr.chalodss.spaceinvaders.classes.Player o-- fr.chalodss.spaceinvaders.classes.EState : state
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
